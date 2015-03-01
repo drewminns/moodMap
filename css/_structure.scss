@@ -1,0 +1,22 @@
+body {
+    background: url(../images/background.jpg);
+    background-size: cover;
+}
+
+.wrapper {
+	max-width: 600px;
+	margin: 0 auto;
+	position: relative;
+	height: 100vh;
+}
+
+.hide { display: none; }
+.show { display: block; }
+
+.card {
+	background: #ffdb4c;
+}
+
+canvas#canvas {
+	display: none;
+}
