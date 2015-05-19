@@ -9,6 +9,7 @@ $grey6: #68715f;
 $grey7: #90978a;
 $grey8: #e1e3df;
 $teal : #329898;
+$link: #85D0D1;
 $base-font-size: 12px;
 
 @mixin font-size($sizeValue: $base-font-size, $line: $sizeValue * 1.6) {
@@ -30,10 +31,8 @@ $base-font-size: 12px;
   }
 }
 
-@include importfont('mission script', 'fonts/mission-script-webfont', 300);
-
-$baseFont: "Lato",sans-serif;
-$titleFont: 'Playfair Display', serif;
+$baseFont: "proxima-nova",sans-serif;
+$titleFont: "proxima-nova", sans-serif;
 
 
 /* Base Styles
@@ -63,18 +62,19 @@ $scale:1.414;
 
 /* Setup */
 
-// html {
-//     /* Change default typefaces here */
-//     font-family: $baseFont;
-//     font-size: $baseFontSize / 16 * 100%;
-//     // Make everything look a little nicer in webkit
-//     -webkit-font-smoothing: antialiased;
-//     -webkit-text-size-adjust: auto;
-//     -moz-text-size-adjust: auto;
-//     -ms-text-size-adjust: auto;
-//     -o-text-size-adjust: auto;
-//     text-size-adjust: auto;
-// }
+html {
+    /* Change default typefaces here */
+    font-family: $baseFont;
+    font-size: $baseFontSize / 16 * 100%;
+    // Make everything look a little nicer in webkit
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: auto;
+    -moz-text-size-adjust: auto;
+    -ms-text-size-adjust: auto;
+    -o-text-size-adjust: auto;
+    text-size-adjust: auto;
+    color: white;
+}
 /* Copy & Lists */
 
 p {
@@ -118,10 +118,12 @@ h6 {
     line-height: $leading;
     text-transform: uppercase;
     letter-spacing: -2px;
+    font-weight: 300;
+    text-shadow: 0px 5px 25px rgba(0,0,0,0.3);
 }
 h1 {
-    font-size: 3 * $scale * 1rem;
-    line-height: 3 * $leading;
+    font-size: 4.5 * $scale * 1rem;
+    line-height: 4.5 * $leading;
     // margin-top: 2 * $leading;
 }
 h2 {
@@ -243,14 +245,14 @@ strong {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 a {
-  color: $teal;
+  color: $link;
   text-decoration: none;
   -webkit-transition: all ease 0.2s;
   -moz-transition: all ease 0.2s;
   -o-transition: all ease 0.2s;
   transition: all ease 0.2s;
   &:hover {
-    color: lighten($teal, 15%);
+    color: lighten($link, 15%);
   }
 }
 
@@ -262,7 +264,7 @@ a {
   line-height: 2.667rem;
   color: #fff;
   display: inline-block;
-  background-color: $teal;
+  background-color: $link;
   text-transform: lowercase;
   padding: 5px 21px;
   margin-right: 25px;

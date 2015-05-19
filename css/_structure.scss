@@ -1,21 +1,114 @@
 body {
-    background: url(../images/background.jpg);
-    background-size: cover;
+	background: linear-gradient(10deg, #000001, #120C25, #2D1320, #140E27);
 }
 
 .wrapper {
-	max-width: 600px;
+	max-width: 1280px;
 	margin: 0 auto;
 	position: relative;
 	height: 100vh;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-flow: row wrap;
+}
+
+p.intro {
+	@include font-size(21, 32);
+	font-weight: 700;
+}
+
+header.feature {
+	flex: 1 0 40%;
+}
+
+.card {
+	flex: 1 0 55%;
+	margin-left: 5%;
+	padding: 25px;
+	text-align: center;
+	border: 2px solid #3B4954;
+	border-radius: 10px;
+	box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+	background: transparentize(#2C3941, 0.1);
+}
+
+.picSection {
+	button#snap {
+		padding: 10px 50px;
+		color: white;
+		background: #FF003D;
+		border: none;
+		@include font-size(24, 36);
+		margin-top: 25px;
+		text-transform: uppercase;
+		transition: all 0.5s;
+		box-shadow: 0 0 2px rgba(0,0,0,0.6);
+		&:hover {
+			background: lighten(#FF003D, 5%);
+			box-shadow: 0 0 5px rgba(0,0,0,0.6);
+		}
+	}
+}
+
+.vidDisplay {
+	height: 480px;
+	width: 100%;
+	video, canvas {
+		width: 100%;
+	}
+}
+
+.preview {
+	display: none;
+	position: relative;
+}
+
+.resultGroup {
+	position: relative;
+	overflow: hidden;
+	.resultImg img {
+		width: 100%;
+		display: block;
+	}
+	.load {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: rgba(0,0,0,0.5);
+		.loadDetails {
+			position: absolute;
+			top: calc(50% - 64px);
+			left: calc(50% - 64px);
+			img {
+				-webkit-filter: blur(1px) opacity(0.5);
+			}
+		}
+	}
+}
+
+.result {
+	position: absolute;
+	border: 3px solid rgba(255,255,255,0.7);
+	box-shadow: 0 0 2px rgba(255,255,255,0.9), inset 0 0 2px rgba(255,255,255,0.9);
+}
+.resultCopy {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: transparentize(#06E8AB, 0.4);
+	padding: 25px;
+	@include font-size(32, 42);
 }
 
 .hide { display: none; }
 .show { display: block; }
 
-.card {
-	background: #ffdb4c;
-}
+// .card {
+// 	background: #ffdb4c;
+// }
 
 canvas#canvas {
 	display: none;

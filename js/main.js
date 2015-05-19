@@ -41,8 +41,9 @@ picApp.pic = function() {
 		picApp.locals.video.pause();
 		picApp.stream.stop();
 		picApp.locals.vibePhoto = picApp.convert(picApp.locals.canvas);
-		$('.picSection').addClass('hide');
-		$('.preview').html(picApp.locals.vibePhoto).addClass('show');
+		$('.picSection').fadeOut().addClass('hide');
+		$('.preview').fadeIn().addClass('show');
+		$('.resultImg').html(picApp.locals.vibePhoto);
 		picApp.upload();
 	});
 };
@@ -88,7 +89,7 @@ picApp.deletePic = function(info) {
 		  Accept: 'application/json'
 		},
 		success: function(rez) {
-			console.log(rez);
+			// console.log(rez);
 		}
 	});
 };
@@ -105,29 +106,34 @@ picApp.getEmotions = function(image) {
     success: function(data) {
     	picApp.sortData(data.face[0]);
     	picApp.deletePic(picApp.deleteLink);
-    },
-    error: function(rez) {
-    	console.log(rez);
     }
 	});
 };
 
-
-
-
-
 picApp.sortData = function(info) {
-	console.log(info);
-	$('<p class="gender"></p>').text(info.attribute.gender.value).appendTo('.preview');
-	$('<p class="age"></p>').text(info.attribute.age.value).appendTo('.preview');
-	$('<p class="race"></p>').text(info.attribute.race.value).appendTo('.preview');
+	$('.load').fadeOut().addClass('hide');
+	var $height = info.position.height;
+	var $width = info.position.width;
+	var $centerX = info.position.center.x - ($width / 2);
+	var $centerY = info.position.center.y - ($height - 2);
+	var locationCSS = {
+		width: $width + '%',
+		height: $height + '%',
+		top: $centerY + '%',
+		left: $centerX + '%'
+	}
+	$('.result').removeClass('hide').css(locationCSS);
+
+	var sentence = '<p>You\'re a ' + info.attribute.age.value + ' year old ' + info.attribute.race.value + ' ' + info.attribute.gender.value + '</p>';
+	$('.resultCopy').removeClass('hide').html(sentence);
 };
 
 picApp.init = function() {
 	picApp.canvas();
 	picApp.pic();
+	console.log('I love you. Find more stuff at drewminns.com');
 };
 
 $(function() {
-		// picApp.init();
+		picApp.init();
 });

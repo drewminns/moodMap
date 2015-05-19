@@ -2,27 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>who am i?</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="//use.typekit.net/dng2rhb.js"></script>
 	<script>try{Typekit.load();}catch(e){}</script>
-	<link href='http://fonts.googleapis.com/css?family=Lato:300|Archivo+Narrow:700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/main.min.css">
 </head>
 <body>
 
-	<h1>The Guessing Game</h1>
-
 	<div class="wrapper">
+
+		<header class="feature">
+			<h1 class="title">Who am i?</h1>
+			<p class="intro">An experiment in Facial Recognition Tools. Utilizing <a href="http://api.imgur.com/">Imgur</a> and <a href="http://www.faceplusplus.com/">FacePlusPlus</a>. Images are deleted upon completion.</p>
+		</header>
+
 		<div class="card picSection">
-			<video id="video" autoplay></video>
-			<canvas id="canvas" width="640" height="480"></canvas>
-			<button id="snap">Snap Photo</button>
+			<div class="vidDisplay">
+				<video id="video" autoplay></video>
+				<canvas id="canvas" width="640" height="480"></canvas>
+			</div>
+			<button id="snap">Take Picture</button>
 		</div>
 		<div class="card preview">
-			
+			<div class="resultGroup">
+				<div class="resultImg"></div>
+				<div class="load">
+					<div class="loadDetails">
+						<img src="images/load.GIF" alt="">
+						<p>Collecting Data</p>
+					</div>
+				</div>
+				<div class="result hide"></div>
+				<div class="resultCopy hide"></div>
+			</div>
 		</div>
 	</div>
+
+	<footer class="info">
+		<p>Created just because by <a href="http://drewminns.com">drewminns</a></p>
+	</footer>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
