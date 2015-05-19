@@ -349,7 +349,7 @@ body {
   background: linear-gradient(10deg, #000001, #120C25, #2D1320, #140E27); }
 
 .wrapper {
-  max-width: 1280px;
+  max-width: 980px;
   margin: 0 auto;
   position: relative;
   height: 100vh;
@@ -378,9 +378,9 @@ p.intro {
 
 header.feature {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 40%;
-      -ms-flex: 1 0 40%;
-          flex: 1 0 40%; }
+  -webkit-flex: 1 0 30%;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%; }
 
 .card {
   -webkit-box-flex: 1;
