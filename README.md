@@ -1,7 +1,5 @@
-# moodMap
+# Who Am I?
 
-Working through some awesome stuff. Loads of cleanup to do. 
+An exploration in facial recognition and local oAuth tooling
 
-Mainly UX/UI stuff to work through.
-
-getUserMedia, imgur API and FaceFacePlus on the go. Whoa.
+Check it out at [reallygood.work/who](http://reallygood.work/who)
