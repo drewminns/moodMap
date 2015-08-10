@@ -70,9 +70,10 @@ picApp.upload = function() {
 	    type: 'base64'
 	  },
 	  success: function(result) {
+
 	  	picApp.deleteLink = result.data.deletehash;
 	    var id = result.data.id;
-	    var link = 'http://i.imgur.com/' + id + '.png';
+	    var link = 'http://i.imgur.com/' + id + '.jpg';
 	    picApp.locals.imgurImg = result.data.id;
 	    picApp.getEmotions(link);
 	  }
@@ -95,19 +96,34 @@ picApp.deletePic = function(info) {
 };
 
 picApp.getEmotions = function(image) {
-	$.ajax({
-		url: 'https://apius.faceplusplus.com/v2/detection/detect',
-    type: 'GET',
-    data: {
-      url : image,
-      api_key : picApp.locals.ffpkey,
-      api_secret : picApp.locals.ffpscrt
-    },
-    success: function(data) {
-    	picApp.sortData(data.face[0]);
-    	picApp.deletePic(picApp.deleteLink);
-    }
+	var api = new FacePP('0ef14fa726ce34d820c5a44e57fef470',
+	                     '4Y9YXOMSDvqu1Ompn9NSpNwWQFHs1hYD',
+	                     { apiURL: 'http://apicn.faceplusplus.com/v2' });
+	api.request('detection/detect', {
+	  url: image
+	}, function(err, result) {
+	  if (err) {
+	    $('#response').text('Load failed.');
+	    return;
+	  }
+	  console.log(result);
+  	picApp.sortData(result.face[0]);
+  	picApp.deletePic(picApp.deleteLink);
 	});
+	// $.ajax({
+	// 	url: 'https://apius.faceplusplus.com/v2/detection/detect',
+ //    type: 'GET',
+ //    data: {
+ //      url : image,
+ //      api_key : picApp.locals.ffpkey,
+ //      api_secret : picApp.locals.ffpscrt
+ //    },
+ //    success: function(data) {
+ //    	console.log(data);
+ //    	picApp.sortData(data.face[0]);
+ //    	picApp.deletePic(picApp.deleteLink);
+ //    }
+	// });
 };
 
 picApp.sortData = function(info) {
